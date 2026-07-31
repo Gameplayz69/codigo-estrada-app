@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Estuda Sinais — Proibição (Código da Estrada)</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f172a">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Proibição — Estuda Sinais</h1>
+    <div class="controls">
+      <input id="search" placeholder="Pesquisar sinal..." aria-label="Pesquisar sinal">
+      <button id="toggle-dark" aria-label="Alternar modo escuro">🌙</button>
+      <button id="reset" class="danger">Reiniciar</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div id="imageWrap" class="image-wrap">
+        <img id="signImage" src="images/placeholder.svg" alt="sinal" />
+      </div>
+
+      <div class="info">
+        <h2 id="signName">—</h2>
+        <p id="signDesc" class="muted">Clique em Revelar para ver o nome e significado.</p>
+      </div>
+
+      <div class="actions">
+        <button id="reveal">👁️ Revelar</button>
+        <button id="learned">✅ Aprendido</button>
+        <button id="skip">⏭ Próximo</button>
+      </div>
+
+      <div class="mode-row">
+        <label><input type="checkbox" id="spaced"> Repetição espaçada</label>
+        <button id="quizMode">🎯 Modo Quiz</button>
+        <button id="statsBtn">📊 Estatísticas</button>
+      </div>
+    </section>
+
+    <section class="side">
+      <div class="progress">
+        <h3>Progresso</h3>
+        <ul class="stats-list">
+          <li>Aprendidos: <span id="statLearned">0</span></li>
+          <li>Por aprender: <span id="statToLearn">0</span></li>
+          <li>Taxa de acerto: <span id="statRate">0%</span></li>
+          <li>Nível: <span id="level">1</span></li>
+        </ul>
+      </div>
+
+      <div class="search-results" id="results"></div>
+    </section>
+  </main>
+
+  <!-- Quiz modal -->
+  <dialog id="quizModal" class="quiz-modal">
+    <form method="dialog">
+      <h2 id="quizTitle">Quiz</h2>
+      <div id="quizImageWrap" class="image-wrap small">
+        <img id="quizImage" src="images/placeholder.svg" alt="quiz sinal">
+      </div>
+      <div id="options" class="options"></div>
+      <menu>
+        <button id="closeQuiz">Fechar</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <!-- Stats modal -->
+  <dialog id="statsModal">
+    <h2>Estatísticas detalhadas</h2>
+    <div id="statsDetail"></div>
+    <menu>
+      <button id="closeStats">Fechar</button>
+    </menu>
+  </dialog>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
